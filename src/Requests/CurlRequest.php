@@ -15,8 +15,13 @@ class CurlRequest implements RequestWrapper
         $this->curl = new Curl();
     }
 
-    public function send($url, $method, $data = [])
+    public function send($url, $method, $data = [], $contentType = null)
     {
+        if ($contentType)
+        {
+            $this->curl->setHeader('Content-Type', $contentType);
+        }
+        
         $this->curl->{strtolower($method)}($url, $data);
         if ($this->curl->error) {
             throw new RequestException($this->getErrorMessage());

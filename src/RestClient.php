@@ -50,9 +50,9 @@ abstract class RestClient
      *
      * @return mixed
      */
-    public function request($method, $url, array $data = [])
+    public function request($method, $url, array $data = [], $contentType = null)
     {
-        return $this->request->send($this->baseUrl.'/'.$url, $method, $data);
+        return $this->request->send($this->baseUrl.'/'.$url, $method, $data, $contentType = null);
     }
 
     public function __call($method, $params = [])

@@ -47,11 +47,13 @@ abstract class Service
         $url = isset($arguments[0]) ? '/'.$arguments[0] : '';
         $params = isset($arguments[1]) ? $arguments[1] : [];
         $data = isset($arguments[2]) ? $arguments[2] : [];
+        $contentType = isset($arguments[3]) ? $arguments[3] : null;
 
         return $this->client->request(
             $method,
             sprintf('%s%s?%s', $this->prefix, $url, http_build_query($params)),
-            $data
+            $data,
+            $contentType
         );
     }
 }

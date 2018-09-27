@@ -84,7 +84,7 @@ class Issues extends Service
 
     public function createAttachment($data)
     {
-        return $this->post('attachments', $data);
+        return $this->post('attachments', [], $data, 'multipart/form-data');
     }
 
     public function getAttachment($id)

@@ -52,7 +52,7 @@ abstract class RestClient
      */
     public function request($method, $url, array $data = [], $contentType = null)
     {
-        return $this->request->send($this->baseUrl.'/'.$url, $method, $data, $contentType = null);
+        return $this->request->send($this->baseUrl.'/'.$url, $method, $data, $contentType);
     }
 
     public function __call($method, $params = [])
